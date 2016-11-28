@@ -8,8 +8,6 @@ class UserTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
     public function run()
     {
@@ -19,7 +17,7 @@ class UserTableSeeder extends Seeder
             'name' => 'Alejandro',
             'email' => 'alejandro.seisdedos@gft.com',
             'role' => 'admin',
-            'password' => bcrypt('admin')
+            'password' => bcrypt('admin'),
         ]);
 
         factory(User::class, 50)->create();
