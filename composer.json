@@ -24,7 +24,8 @@
     },
     "autoload-dev": {
         "classmap": [
-            "tests/TestCase.php"
+            "tests/TestCase.php",
+            "app/Console/Commands/Inspire.php"
         ]
     },
     "scripts": {
