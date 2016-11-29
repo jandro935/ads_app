@@ -13,7 +13,7 @@
 
 use Illuminate\Support\Facades\DB;
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\Entities\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->safeEmail,
@@ -23,10 +23,10 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Ads::class, function (Faker\Generator $faker) use ($factory) {
+$factory->define(App\Entities\Ads::class, function (Faker\Generator $faker) use ($factory) {
     return [
-        'title' => $faker->sentence,
-        'body' => $faker->paragraph,
+        'title' => $faker->realText(100),
+        'body' => $faker->realText(500),
         'user_id' => random_int(DB::table('users')->min('id'), DB::table('users')->max('id')),
     ];
 });

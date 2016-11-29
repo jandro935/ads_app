@@ -2,7 +2,7 @@
 
 namespace app\Http\Controllers;
 
-use App\Ads;
+use App\Entities\Ads;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,9 +15,10 @@ class AdsController extends Controller
      */
     public function index()
     {
-        $ads = Ads::with(array('user'))->paginate(5);
+//        $ads = Ads::with('author')->paginate(5);
+        $ads = Ads::orderBy('id')->paginate(5);
 
-        return view('list', compact('ads'));
+        return view('ads/list', compact('ads'));
     }
 
     /**
@@ -49,6 +50,9 @@ class AdsController extends Controller
      */
     public function show($id)
     {
+        $ad = Ads::findOrFail($id);
+
+        return view('ads/details', compact('ad'));
     }
 
     /**

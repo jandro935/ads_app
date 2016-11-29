@@ -2,7 +2,7 @@
 
 namespace app\Http\Controllers\Auth;
 
-use App\User;
+use App\Entities\User;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -29,6 +29,16 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'getLogout']);
+    }
+
+    /**
+     * @override redirectPath()
+     *
+     * @return string
+     */
+    public function redirectPath()
+    {
+        return '/';
     }
 
     /**

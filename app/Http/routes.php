@@ -11,7 +11,17 @@
 |
 */
 
+Route::controllers([
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
+]);
+
 Route::get('/', [
     'as' => 'ads.index',
     'uses' => 'AdsController@index',
+]);
+
+Route::get('/ad/{id}', [
+    'as' => 'ads.show',
+    'uses' => 'AdsController@show'
 ]);
