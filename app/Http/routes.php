@@ -13,5 +13,5 @@
 
 Route::get('/', [
     'as' => 'ads.index',
-    'uses' => 'AdsController@index'
+    'uses' => 'AdsController@index',
 ]);

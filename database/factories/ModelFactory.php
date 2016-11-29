@@ -19,7 +19,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'email' => $faker->safeEmail,
         'password' => bcrypt(str_random(10)),
         'remember_token' => str_random(10),
-        'role' => $faker->randomElement(['user', 'editor'])
+        'role' => $faker->randomElement(['user', 'editor']),
     ];
 });
 
@@ -27,7 +27,6 @@ $factory->define(App\Ads::class, function (Faker\Generator $faker) use ($factory
     return [
         'title' => $faker->sentence,
         'body' => $faker->paragraph,
-//        'user_id' => $factory->create(App\User::class)->id
-        'user_id' => random_int(DB::table('users')->min('id'), DB::table('users')->max('id'))
+        'user_id' => random_int(DB::table('users')->min('id'), DB::table('users')->max('id')),
     ];
 });

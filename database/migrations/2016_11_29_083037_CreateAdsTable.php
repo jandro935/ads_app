@@ -8,12 +8,10 @@ class CreateAdsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
-        Schema::create('ads', function(Blueprint $table) {
+        Schema::create('ads', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title', 100);
             $table->string('body');
@@ -27,8 +25,6 @@ class CreateAdsTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {
