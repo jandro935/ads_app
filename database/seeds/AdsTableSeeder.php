@@ -2,7 +2,8 @@
 
 use App\Entities\Ads;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+
+//use Illuminate\Support\Facades\DB;
 
 class AdsTableSeeder extends Seeder
 {
@@ -11,7 +12,7 @@ class AdsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('ads')->truncate();
+        //        DB::table('ads')->truncate();
 
         factory(Ads::class, 50)->create();
     }

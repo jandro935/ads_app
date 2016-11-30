@@ -3,11 +3,20 @@
 namespace app\Http\Controllers;
 
 use App\Entities\Ads;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Repositories\AdsRepository;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class AdsController extends Controller
 {
+    private $adsRepository;
+
+    public function __construct(AdsRepository $adsRepository)
+    {
+        $this->adsRepository = $adsRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,8 +24,8 @@ class AdsController extends Controller
      */
     public function index()
     {
-//        $ads = Ads::with('author')->paginate(5);
-        $ads = Ads::orderBy('id')->paginate(5);
+        //        $ads = Ads::with('author')->paginate(5);
+        $ads = Ads::orderBy('id', 'desc')->paginate(5);
 
         return view('ads/list', compact('ads'));
     }
@@ -28,6 +37,7 @@ class AdsController extends Controller
      */
     public function create()
     {
+        return view('ads.create');
     }
 
     /**
@@ -39,6 +49,18 @@ class AdsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'title' => 'required|max:100',
+            'body' => 'required|max:500',
+        ]);
+
+        $ad = $this->adsRepository->addAd(
+            $request->get('title'),
+            $request->get('body'),
+            auth()->user()
+        );
+
+        return Redirect::route('ads.show', $ad->id);
     }
 
     /**

@@ -17,9 +17,10 @@ $factory->define(App\Entities\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->safeEmail,
-        'password' => bcrypt(str_random(10)),
-        'remember_token' => str_random(10),
+        'phone' => $faker->randomNumber(9),
         'role' => $faker->randomElement(['user', 'editor']),
+        'password' => bcrypt('user'),
+        'remember_token' => str_random(10),
     ];
 });
 

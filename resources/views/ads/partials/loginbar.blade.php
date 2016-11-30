@@ -8,6 +8,8 @@
                 {{ Auth::user()->name }} <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" role="menu">
+                <li><a href="{{ url('/profile') }}">Profile</a></li>
+                <li class="divider"></li>
                 <li><a href="{{ url('/auth/logout') }}">Logout</a></li>
             </ul>
         </li>

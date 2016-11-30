@@ -2,7 +2,8 @@
 
 use App\Entities\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+
+//use Illuminate\Support\Facades\DB;
 
 class UserTableSeeder extends Seeder
 {
@@ -11,10 +12,10 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->truncate();
+        //        DB::table('users')->truncate();
 
         factory(User::class)->create([
-            'name' => 'Alejandro',
+            'name' => 'Alejandro Seisdedos',
             'email' => 'alejandro.seisdedos@gft.com',
             'role' => 'admin',
             'password' => bcrypt('admin'),

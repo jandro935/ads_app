@@ -23,5 +23,17 @@ Route::get('/', [
 
 Route::get('/ad/{id}', [
     'as' => 'ads.show',
-    'uses' => 'AdsController@show'
+    'uses' => 'AdsController@show',
 ]);
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/new', [
+        'as' => 'ads.create',
+        'uses' => 'AdsController@create',
+    ]);
+
+    Route::post('/new', [
+        'as' => 'ads.store',
+        'uses' => 'AdsController@store',
+    ]);
+});
