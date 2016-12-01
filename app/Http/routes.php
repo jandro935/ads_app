@@ -36,4 +36,19 @@ Route::group(['middleware' => 'auth'], function () {
         'as' => 'ads.store',
         'uses' => 'AdsController@store',
     ]);
+
+    Route::get('/profile', [
+        'as' => 'user.profile',
+        'uses' => 'UserController@index'
+    ]);
+
+    Route::get('/profile/update/{id}', [
+        'as' => 'user.edit',
+        'uses' => 'UserController@edit'
+    ]);
+
+    Route::put('/profile/update/{id}', [
+        'as' => 'user.update',
+        'uses' => 'UserController@update'
+    ]);
 });

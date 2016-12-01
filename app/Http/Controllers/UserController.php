@@ -2,21 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Entities\Ads;
-use App\Http\Controllers\Controller;
-use App\Repositories\AdsRepository;
+use App\Entities\User;
+use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+//use Illuminate\Support\Facades\Request;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
 
-class AdsController extends Controller
+class UserController extends Controller
 {
-    private $adsRepository;
-
-    public function __construct(AdsRepository $adsRepository)
-    {
-        $this->adsRepository = $adsRepository;
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -24,10 +19,7 @@ class AdsController extends Controller
      */
     public function index()
     {
-        //        $ads = Ads::with('author')->paginate(5);
-        $ads = Ads::orderBy('id', 'desc')->paginate(5);
-
-        return view('ads/list', compact('ads'));
+        return view('user/profile');
     }
 
     /**
@@ -37,77 +29,71 @@ class AdsController extends Controller
      */
     public function create()
     {
-        return view('ads.create');
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'title' => 'required|max:100',
-            'body' => 'required|max:500',
-        ]);
-
-        $ad = $this->adsRepository->addAd(
-            $request->get('title'),
-            $request->get('body'),
-            auth()->user()
-        );
-
-        return Redirect::route('ads.show', $ad->id);
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param int $id
-     *
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $ad = Ads::findOrFail($id);
-
-        return view('ads/details', compact('ad'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $id
-     *
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
+        $user = User::findOrFail($id);
+
+        return view('user/edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param int                      $id
-     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
+        $user = User::findOrFail($id);
+        $user->update([
+            $request->input('name'),
+            $request->input('email'),
+            $request->input('phone')
+        ]);
+
+        return Redirect::route('user.profile');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
-     *
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
+        //
     }
 }

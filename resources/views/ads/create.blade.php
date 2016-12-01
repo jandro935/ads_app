@@ -15,7 +15,7 @@
                         {!! Form::text('title', null, [
                                 'class' => 'form-control',
                                 'placeholder' => 'Ad Title'
-                            ]) !!}
+                        ]) !!}
                     </div>
 
                     <div class="form-group">
@@ -24,12 +24,10 @@
                                 'rows' => 2,
                                 'class' => 'form-control',
                                 'placeholder' => 'Ad Description'
-                            ]) !!}
+                        ]) !!}
                     </div>
 
-                    <p>
-                        <button type="submit" class="btn btn-primary">Enviar</button>
-                    </p>
+                    <p><button type="submit" class="btn btn-primary">Enviar</button></p>
                 {!! Form::close() !!}
             </div>
         </div>
