@@ -37,18 +37,33 @@ Route::group(['middleware' => 'auth'], function () {
         'uses' => 'AdsController@store',
     ]);
 
+    Route::get('/your-ads/{id}', [
+        'as' => 'ads.indexByAuthor',
+        'uses' => 'AdsController@indexByAuthor',
+    ]);
+
+    Route::get('/ad/update/{id}', [
+        'as' => 'ads.edit',
+        'uses' => 'AdsController@edit',
+    ]);
+
+    Route::put('/ad/update/{id}', [
+        'as' => 'ads.update',
+        'uses' => 'AdsController@update',
+    ]);
+
     Route::get('/profile', [
         'as' => 'user.profile',
-        'uses' => 'UserController@index'
+        'uses' => 'UserController@index',
     ]);
 
     Route::get('/profile/update/{id}', [
         'as' => 'user.edit',
-        'uses' => 'UserController@edit'
+        'uses' => 'UserController@edit',
     ]);
 
     Route::put('/profile/update/{id}', [
         'as' => 'user.update',
-        'uses' => 'UserController@update'
+        'uses' => 'UserController@update',
     ]);
 });

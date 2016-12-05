@@ -13,8 +13,9 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="{{ url() }}">Latest</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                @if (Auth::check())
+                    <li><a href="{{ route('ads.indexByAuthor', Auth::user()->id) }}">Your Ads</a></li>
+                @endif
             </ul>
 
             @include('ads/partials/loginbar')

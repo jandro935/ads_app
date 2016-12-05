@@ -8,7 +8,7 @@
                 <div class="row coralbg white">
                     <div class="col-md-6 no-pad">
                         <div class="user-pad">
-                            <h3>Welcome back, {!! Auth::user()->name !!}</h3>
+                            <h3>Welcome back, {!! Auth::user()->name !!} !!</h3>
                             <h4 class="white"><i class="fa fa-check-circle-o"></i> San Antonio, TX</h4>
                             <h4 class="white"><i class="fa fa-twitter"></i> CoolesOCool</h4>
                             <button type="button" class="btn btn-labeled btn-info">

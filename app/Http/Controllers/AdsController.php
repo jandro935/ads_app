@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace app\Http\Controllers;
 
 use App\Entities\Ads;
 use App\Http\Controllers\Controller;
@@ -24,10 +24,24 @@ class AdsController extends Controller
      */
     public function index()
     {
-        //        $ads = Ads::with('author')->paginate(5);
         $ads = Ads::orderBy('id', 'desc')->paginate(5);
 
         return view('ads/list', compact('ads'));
+    }
+
+    /**
+     * Display a listing of the resource by Author ID.
+     *
+     * @param $id
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function indexByAuthor($id)
+    {
+        $ads = Ads::where('user_id', $id)->paginate(5);
+
+        // @TODO: Merge List and ListByAuthor Views
+        return view('ads/listbyauthor', compact('ads'));
     }
 
     /**
@@ -86,6 +100,9 @@ class AdsController extends Controller
      */
     public function edit($id)
     {
+        $ad = Ads::findOrFail($id);
+
+        return view('ads/edit', compact('ad'));
     }
 
     /**
@@ -98,6 +115,13 @@ class AdsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $ad = Ads::findOrFail($id);
+        $ad->title = $request->input('title');
+        $ad->body = $request->input('body');
+
+        $ad->save();
+
+        return Redirect::route('ads.show', $ad->id);
     }
 
     /**
@@ -109,5 +133,6 @@ class AdsController extends Controller
      */
     public function destroy($id)
     {
+        //
     }
 }
