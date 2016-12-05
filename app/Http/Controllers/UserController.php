@@ -6,7 +6,6 @@ use App\Entities\User;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-//use Illuminate\Support\Facades\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -77,11 +76,11 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::findOrFail($id);
-        $user->update([
-            $request->input('name'),
-            $request->input('email'),
-            $request->input('phone')
-        ]);
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->phone = $request->input('phone');
+
+        $user->save();
 
         return Redirect::route('user.profile');
     }
