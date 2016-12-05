@@ -3,9 +3,9 @@
 namespace app\Http\Controllers;
 
 use App\Entities\User;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {

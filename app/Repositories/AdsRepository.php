@@ -3,6 +3,7 @@
 namespace app\Repositories;
 
 use App\Entities\Ads;
+use App\Repositories\BaseRepository;
 
 class AdsRepository extends BaseRepository
 {
