@@ -133,6 +133,9 @@ class AdsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ad = Ads::findOrFail($id);
+        $ad->destroy($id);
+
+        return Redirect::route('ads.index');
     }
 }

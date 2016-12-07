@@ -15,6 +15,12 @@
                             Update Add
                         </a>
                     </h4>
+
+                    {!! Form::model($ad, ['action' => ['AdsController@destroy', 'id' => $ad->id], 'method' => 'DELETE']) !!}
+                    <h4>
+                        <p><button type="submit" class="btn btn-danger">Delete Add</button></p>
+                    </h4>
+                    {!! Form::close() !!}
                 @endif
             </div>
         </div>

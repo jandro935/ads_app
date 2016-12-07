@@ -52,6 +52,11 @@ Route::group(['middleware' => 'auth'], function () {
         'uses' => 'AdsController@update',
     ]);
 
+    Route::delete('/ad/delete/{id}', [
+        'as' => 'ads.destroy',
+        'uses' => 'AdsController@destroy'
+    ]);
+
     Route::get('/profile', [
         'as' => 'user.profile',
         'uses' => 'UserController@index',
