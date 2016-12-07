@@ -1,9 +1,9 @@
 <?php
 
-namespace app\Entities;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Entities\User;
+use App\Models\User;
 
 class Ads extends Model
 {

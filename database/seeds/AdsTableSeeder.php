@@ -1,6 +1,6 @@
 <?php
 
-use App\Entities\Ads;
+use App\Models\Ads;
 use Illuminate\Database\Seeder;
 
 //use Illuminate\Support\Facades\DB;

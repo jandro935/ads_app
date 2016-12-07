@@ -1,8 +1,8 @@
 <?php
 
-namespace app\Http\Controllers;
+namespace App\Http\Controllers;
 
-use App\Entities\Ads;
+use App\Models\Ads;
 use App\Http\Controllers\Controller;
 use App\Repositories\AdsRepository;
 use Illuminate\Http\Request;

@@ -11,6 +11,7 @@
     @endif
 
     <ul class="list-group">
+
         @foreach($ads as $ad)
             <li class="list-group-item">
                 <a href="{{ route('ads.show', $ad) }}">

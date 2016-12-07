@@ -1,8 +1,8 @@
 <?php
 
-namespace app\Repositories;
+namespace App\Repositories;
 
-use App\Entities\Entity;
+use App\Models\Entity;
 
 abstract class BaseRepository
 {

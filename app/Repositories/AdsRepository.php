@@ -1,8 +1,8 @@
 <?php
 
-namespace app\Repositories;
+namespace App\Repositories;
 
-use App\Entities\Ads;
+use App\Models\Ads;
 use App\Repositories\BaseRepository;
 
 class AdsRepository extends BaseRepository
