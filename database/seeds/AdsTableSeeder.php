@@ -12,7 +12,7 @@ class AdsTableSeeder extends Seeder
      */
     public function run()
     {
-        //        DB::table('ads')->truncate();
+//        DB::table('ads')->truncate();
 
         factory(Ads::class, 50)->create();
     }

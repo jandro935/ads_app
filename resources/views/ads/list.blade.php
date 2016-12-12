@@ -30,6 +30,9 @@
                     <span class="label label-primary">Contacto:</span>
                     <span class="label label-danger">{!! $ad->author->phone !!}</span>
                 </h4>
+                <h4>
+                    <a href="{{ route('ads.create') }}" title="Star Ad" class="btn btn-success">Star Ad</a>
+                </h4>
             </li>
         @endforeach
     </ul>
