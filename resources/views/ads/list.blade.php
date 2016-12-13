@@ -12,7 +12,7 @@
 
     <ul class="list-group">
         @foreach($ads as $ad)
-            <li class="list-group-item">
+            <li data-id="{{ $ad->id }}" class="list-group-item ad">
                 <a href="{{ route('ads.show', $ad) }}">
                     <h4 class="list-title">{!! $ad->title !!}</h4>
                 </a>
@@ -30,12 +30,18 @@
                     <span class="label label-primary">Contacto:</span>
                     <span class="label label-danger">{!! $ad->author->phone !!}</span>
                 </h4>
-                <h4>
-                    <a href="{{ route('ads.create') }}" title="Star Ad" class="btn btn-success">Star Ad</a>
-                </h4>
+
+                @if(Auth::user()->id != $ad->author->id)
+                    <h4>
+                        <a href="#" title="Star Ad" class="btn btn-success btn-star">Star Ad</a>
+                    </h4>
+                @endif
             </li>
         @endforeach
     </ul>
+
+    {!! Form::open(['id' => 'form-star', 'route' => ['star.submit', ':id'], 'method' => 'POST']) !!}
+    {!! Form::close() !!}
 
     {!! $ads->render() !!}
 

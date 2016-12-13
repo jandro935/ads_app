@@ -41,4 +41,14 @@ class User extends Model implements AuthenticatableContract,
     {
         return $this->hasMany(Ads::class);
     }
+
+    public function stard()
+    {
+        return $this->belongsToMany(Ads::class, 'ads_stars')->withTimestamps();
+    }
+
+    public function hasStar(Ads $ads)
+    {
+        return $this->stard()->where('ads_id', $ads->id)->count();
+    }
 }

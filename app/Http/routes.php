@@ -57,6 +57,18 @@ Route::group(['middleware' => 'auth'], function () {
         'uses' => 'AdsController@destroy'
     ]);
 
+    // Star Ads
+    Route::post('/star/{id}', [
+        'as' => 'star.submit',
+        'uses' => 'StarsController@submit'
+    ]);
+
+    Route::delete('/star/{id}', [
+        'as' => 'star.destroy',
+        'uses' => 'StarsController@destroy'
+    ]);
+
+    // Profile
     Route::get('/profile', [
         'as' => 'user.profile',
         'uses' => 'UserController@index',
