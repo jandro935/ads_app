@@ -7,15 +7,21 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ url() }}">Ads List</a>
+            <a class="navbar-brand" href="{{ url() }}" title="Ads App">Ads App</a>
         </div>
 
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="{{ url() }}">Latest</a></li>
+                <li class="{{ Route::is('ads.index') ? 'active' : '' }}">
+                    <a href="{{ url() }}" title="Latest">Latest</a>
+                </li>
                 @if (Auth::check())
-                    <li><a href="{{ route('ads.indexByAuthor', Auth::user()->id) }}">Your Ads</a></li>
-                    <li><a href="{{ route('ads.indexByStar', Auth::user()->id) }}">Your Star Ads</a></li>
+                    <li class="{{ Route::is('ads.indexByAuthor') ? 'active' : '' }}">
+                        <a href="{{ route('ads.indexByAuthor', Auth::user()->id) }}" title="Your Ads">Your Ads</a>
+                    </li>
+                    <li class="{{ Route::is('ads.indexByStar') ? 'active' : '' }}">
+                        <a href="{{ route('ads.indexByStar', Auth::user()->id) }}" title="Your Star Ads">Your Star Ads</a>
+                    </li>
                 @endif
             </ul>
 

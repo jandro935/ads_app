@@ -2,7 +2,8 @@
 
 @section('content')
 
-    <h3>Latest Ads</h3>
+    {{--<h3>Latest Ads</h3>--}}
+    <h3>{{ $title }}</h3>
 
     @if (Auth::check())
         <h4>

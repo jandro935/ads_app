@@ -142,7 +142,6 @@ return [
         /*
          * Vendor Service Providers
          */
-//        Collective\Html\HtmlServiceProvider::class,
         App\Providers\HtmlServiceProvider::class,
 
         /*
@@ -152,6 +151,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\ViewServiceProvider::class,
 
     ],
 
