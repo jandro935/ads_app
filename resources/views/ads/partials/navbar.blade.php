@@ -15,6 +15,7 @@
                 <li class="active"><a href="{{ url() }}">Latest</a></li>
                 @if (Auth::check())
                     <li><a href="{{ route('ads.indexByAuthor', Auth::user()->id) }}">Your Ads</a></li>
+                    <li><a href="{{ route('ads.indexByStar', Auth::user()->id) }}">Your Star Ads</a></li>
                 @endif
             </ul>
 

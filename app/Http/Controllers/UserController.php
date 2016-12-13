@@ -26,7 +26,6 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -38,7 +37,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
@@ -50,7 +48,6 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
@@ -96,6 +93,5 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
     }
 }

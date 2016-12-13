@@ -42,6 +42,11 @@ Route::group(['middleware' => 'auth'], function () {
         'uses' => 'AdsController@indexByAuthor',
     ]);
 
+    Route::get('/your-star-ads/{id}', [
+        'as' => 'ads.indexByStar',
+        'uses' => 'AdsController@indexByStar',
+    ]);
+
     Route::get('/ad/update/{id}', [
         'as' => 'ads.edit',
         'uses' => 'AdsController@edit',
@@ -54,18 +59,18 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::delete('/ad/delete/{id}', [
         'as' => 'ads.destroy',
-        'uses' => 'AdsController@destroy'
+        'uses' => 'AdsController@destroy',
     ]);
 
     // Star Ads
     Route::post('/star/{id}', [
         'as' => 'star.submit',
-        'uses' => 'StarsController@submit'
+        'uses' => 'StarsController@submit',
     ]);
 
     Route::delete('/star/{id}', [
         'as' => 'star.destroy',
-        'uses' => 'StarsController@destroy'
+        'uses' => 'StarsController@destroy',
     ]);
 
     // Profile

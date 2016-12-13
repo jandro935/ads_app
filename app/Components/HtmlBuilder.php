@@ -14,8 +14,9 @@ class HtmlBuilder extends CollectiveHtmlBuilder
 
     /**
      * HtmlBuilder constructor.
-     * @param Config $config
-     * @param View $view
+     *
+     * @param Config       $config
+     * @param View         $view
      * @param UrlGenerator $url
      */
     public function __construct(Config $config, View $view, UrlGenerator $url)
@@ -27,6 +28,7 @@ class HtmlBuilder extends CollectiveHtmlBuilder
 
     /**
      * @param array $classes
+     *
      * @return string
      */
     public function classes(array $classes)

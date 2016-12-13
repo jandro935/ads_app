@@ -9,7 +9,8 @@ class StarsRepository
 {
     /**
      * @param User $user
-     * @param Ads $ads
+     * @param Ads  $ads
+     *
      * @return bool
      */
     public function star(User $user, Ads $ads)
@@ -25,7 +26,8 @@ class StarsRepository
 
     /**
      * @param User $user
-     * @param Ads $ads
+     * @param Ads  $ads
+     *
      * @return bool
      */
     public function unstar(User $user, Ads $ads)

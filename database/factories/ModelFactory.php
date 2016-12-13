@@ -35,6 +35,6 @@ $factory->define(App\Models\Ads::class, function (Faker\Generator $faker) use ($
 $factory->define(App\Models\AdsStars::class, function (Faker\Generator $faker) use ($factory) {
     return [
         'user_id' => random_int(DB::table('users')->min('id'), DB::table('users')->max('id')),
-        'ads_id' => random_int(DB::table('ads')->min('id'), DB::table('ads')->max('id'))
+        'ads_id' => random_int(DB::table('ads')->min('id'), DB::table('ads')->max('id')),
     ];
 });

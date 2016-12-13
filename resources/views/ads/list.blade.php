@@ -31,7 +31,8 @@
                     <span class="label label-warning">{!! $ad->author->phone !!}</span>
                 </h4>
 
-                @if(Auth::user()->id != $ad->author->id)
+                @if (Auth::check())
+                {{--@if(Auth::user()->id != $ad->author->id)--}}
                     <h4>
                         <a href="#" title="Star Ad"
                             {!! Html::classes(['btn btn-success btn-star', 'hidden' => auth()->user()->hasStar($ad)]) !!}>
@@ -45,6 +46,7 @@
                             Unstar Ad
                         </a>
                     </h4>
+                {{--@endif--}}
                 @endif
             </li>
         @endforeach

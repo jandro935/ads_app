@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ads;
-use App\Http\Controllers\Controller;
 use App\Repositories\AdsRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -40,8 +39,24 @@ class AdsController extends Controller
     {
         $ads = Ads::where('user_id', $id)->paginate(5);
 
-        // @TODO: Merge List and ListByAuthor Views
-        return view('ads/listbyauthor', compact('ads'));
+        return view('ads/list', compact('ads'));
+    }
+
+    /**
+     * Display a listing of te resource with Star by Author ID.
+     *
+     * @param $id
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function indexByStar($id)
+    {
+        $ads = Ads::join('ads_stars', 'ads.id', '=', 'ads_stars.ads_id')
+            ->select('ads.id', 'ads.title', 'ads.body', 'ads.user_id', 'ads.created_at', 'ads.updated_at')
+            ->where('ads_stars.user_id', $id)
+            ->paginate(5);
+
+        return view('ads/list', compact('ads'));
     }
 
     /**

@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Repositories\AdsRepository;
 use App\Repositories\StarsRepository;
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class StarsController extends Controller
@@ -16,7 +14,8 @@ class StarsController extends Controller
 
     /**
      * StarsController constructor.
-     * @param AdsRepository $adsRepository
+     *
+     * @param AdsRepository   $adsRepository
      * @param StarsRepository $starsRepository
      */
     public function __construct(AdsRepository $adsRepository, StarsRepository $starsRepository)
@@ -28,6 +27,7 @@ class StarsController extends Controller
     /**
      * @param $id
      * @param Request $request
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function submit($id, Request $request)
@@ -43,6 +43,7 @@ class StarsController extends Controller
     /**
      * @param $id
      * @param Request $request
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id, Request $request)
@@ -62,7 +63,6 @@ class StarsController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**
@@ -72,51 +72,50 @@ class StarsController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
     }
 }
