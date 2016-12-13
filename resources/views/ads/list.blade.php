@@ -27,13 +27,23 @@
                     <span class="label label-warning">{!! $ad->author->name !!}</span>
                 </h4>
                 <h4>
-                    <span class="label label-primary">Contacto:</span>
-                    <span class="label label-danger">{!! $ad->author->phone !!}</span>
+                    <span class="label label-default">Contacto:</span>
+                    <span class="label label-warning">{!! $ad->author->phone !!}</span>
                 </h4>
 
                 @if(Auth::user()->id != $ad->author->id)
                     <h4>
-                        <a href="#" title="Star Ad" class="btn btn-success btn-star">Star Ad</a>
+                        <a href="#" title="Star Ad"
+                            {!! Html::classes(['btn btn-success btn-star', 'hidden' => auth()->user()->hasStar($ad)]) !!}>
+                            Star Ad
+                        </a>
+                    </h4>
+
+                    <h4>
+                        <a href="#" title="Unstar Ad"
+                            {!! Html::classes(['btn btn-danger btn-unstar', 'hidden' => !auth()->user()->hasStar($ad)]) !!}>
+                            Unstar Ad
+                        </a>
                     </h4>
                 @endif
             </li>
@@ -41,6 +51,9 @@
     </ul>
 
     {!! Form::open(['id' => 'form-star', 'route' => ['star.submit', ':id'], 'method' => 'POST']) !!}
+    {!! Form::close() !!}
+
+    {!! Form::open(['id' => 'form-unstar', 'route' => ['star.destroy', ':id'], 'method' => 'DELETE']) !!}
     {!! Form::close() !!}
 
     {!! $ads->render() !!}

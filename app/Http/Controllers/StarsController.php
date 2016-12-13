@@ -14,12 +14,22 @@ class StarsController extends Controller
     private $adsRepository;
     private $starsRepository;
 
+    /**
+     * StarsController constructor.
+     * @param AdsRepository $adsRepository
+     * @param StarsRepository $starsRepository
+     */
     public function __construct(AdsRepository $adsRepository, StarsRepository $starsRepository)
     {
         $this->adsRepository = $adsRepository;
         $this->starsRepository = $starsRepository;
     }
 
+    /**
+     * @param $id
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function submit($id, Request $request)
     {
         $ad = $this->adsRepository->findOrFail($id);
@@ -30,6 +40,20 @@ class StarsController extends Controller
         }
     }
 
+    /**
+     * @param $id
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function destroy($id, Request $request)
+    {
+        $ad = $this->adsRepository->findOrFail($id);
+        $success = $this->starsRepository->unstar(auth()->user(), $ad);
+
+        if ($request->ajax()) {
+            return response()->json(compact('success'));
+        }
+    }
 
     /**
      * Display a listing of the resource.
@@ -92,17 +116,6 @@ class StarsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
     {
         //
     }

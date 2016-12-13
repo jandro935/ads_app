@@ -42,7 +42,7 @@ $(document).ready(function() {
     $('.btn-star').click(function (e) {
         e.preventDefault();
 
-        var voteForm = new VoteForm($('#form-star'), $(this), '.btn-unvote');
+        var voteForm = new VoteForm($('#form-star'), $(this), '.btn-unstar');
 
         voteForm.submit(function (response) {
             if (response.success) {
@@ -51,5 +51,19 @@ $(document).ready(function() {
             }
         });
     });
+
+    $('.btn-unstar').click(function (e) {
+        e.preventDefault();
+
+        var voteForm = new VoteForm($('#form-unstar'), $(this), '.btn-star');
+
+        voteForm.submit(function (response) {
+            if (response.success) {
+                console.log('Voto eliminado');
+                // voteForm.updateCount(voteForm.getVotes() - 1);
+            }
+        });
+    });
+
 });
 

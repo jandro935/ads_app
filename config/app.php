@@ -142,7 +142,8 @@ return [
         /*
          * Vendor Service Providers
          */
-        Collective\Html\HtmlServiceProvider::class,
+//        Collective\Html\HtmlServiceProvider::class,
+        App\Providers\HtmlServiceProvider::class,
 
         /*
          * Application Service Providers...
