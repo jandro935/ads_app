@@ -33,7 +33,7 @@ class StarsController extends Controller
     public function submit($id, Request $request)
     {
         $ad = $this->adsRepository->findOrFail($id);
-        $success = $this->starsRepository->star(auth()->user(), $ad);
+        $success = $this->starsRepository->star(currentUser(), $ad);
 
         if ($request->ajax()) {
             return response()->json(compact('success'));
@@ -49,7 +49,7 @@ class StarsController extends Controller
     public function destroy($id, Request $request)
     {
         $ad = $this->adsRepository->findOrFail($id);
-        $success = $this->starsRepository->unstar(auth()->user(), $ad);
+        $success = $this->starsRepository->unstar(currentUser(), $ad);
 
         if ($request->ajax()) {
             return response()->json(compact('success'));

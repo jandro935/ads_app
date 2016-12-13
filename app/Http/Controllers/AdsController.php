@@ -86,7 +86,7 @@ class AdsController extends Controller
         $ad = $this->adsRepository->addAd(
             $request->get('title'),
             $request->get('body'),
-            auth()->user()
+            currentUser()
         );
 
         return Redirect::route('ads.show', $ad->id);

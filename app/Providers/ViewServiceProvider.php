@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class ViewServiceProvider extends ServiceProvider
@@ -13,10 +14,7 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer(
-            'ads/list',
-            'App\Http\ViewComposers\AdsListComposer'
-        );
+        View::composer(['ads/list', 'user/profile'], 'App\Http\ViewComposers\AdsListComposer');
     }
 
     /**

@@ -2,7 +2,6 @@
 
 @section('content')
 
-    {{--<h3>Latest Ads</h3>--}}
     <h3>{{ $title }}</h3>
 
     @if (Auth::check())
@@ -36,14 +35,14 @@
                 {{--@if(Auth::user()->id != $ad->author->id)--}}
                     <h4>
                         <a href="#" title="Star Ad"
-                            {!! Html::classes(['btn btn-success btn-star', 'hidden' => auth()->user()->hasStar($ad)]) !!}>
+                            {!! Html::classes(['btn btn-success btn-star', 'hidden' => currentUser()->hasStar($ad)]) !!}>
                             Star Ad
                         </a>
                     </h4>
 
                     <h4>
                         <a href="#" title="Unstar Ad"
-                            {!! Html::classes(['btn btn-danger btn-unstar', 'hidden' => !auth()->user()->hasStar($ad)]) !!}>
+                            {!! Html::classes(['btn btn-danger btn-unstar', 'hidden' => !currentUser()->hasStar($ad)]) !!}>
                             Unstar Ad
                         </a>
                     </h4>

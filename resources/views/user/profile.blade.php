@@ -5,7 +5,7 @@
     <div class="col-lg-6 col-sm-6">
         <div class="card hovercard">
             <div class="card-background">
-                <img class="card-bkimg" alt="" src="http://lorempixel.com/100/100/people/9/">
+                {{--<img class="card-bkimg" alt="" src="http://lorempixel.com/100/100/people/9/">--}}
             </div>
             <div class="useravatar">
                 <img alt="einstein" src="http://static.notinerd.com/wp-content/uploads/2016/03/881.jpg">
@@ -58,8 +58,7 @@
                     </h4>
                 </div>
                 <div class="tab-pane fade in" id="tab2">
-                    <h3>You have 2 Ads</h3>
-                    <p>Se debe colocar un componente que devuelva el número de ads por user</p>
+                    <h3>You have {{ $adsByAuthor }} Ads</h3>
                 </div>
                 <div class="tab-pane fade in" id="tab3">
                     <h3>This is tab 3</h3>
