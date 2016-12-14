@@ -61,8 +61,7 @@
                     <h3>You have {{ $adsByAuthor }} Ads</h3>
                 </div>
                 <div class="tab-pane fade in" id="tab3">
-                    <h3>This is tab 3</h3>
-                    <p>Implementar la funcionalidad para que se puedan ver los ads favoritos</p>
+                    <h3>You have {{ $adsStar }} Star Ads</h3>
                 </div>
             </div>
         </div>
